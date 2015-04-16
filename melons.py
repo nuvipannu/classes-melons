@@ -1,8 +1,12 @@
-class Melon(object):
+class AbstractOrder(object):
+
+    def __init__(self, qty)
+        self.base_price = base_price
+
     def base_price(self):
         return 5.00
 
-class WatermelonOrder(Melon):
+class WaterAbstractOrderOrder(AbstractOrder):
     species = "Watermelon"
     color = "green"
     imported = False
@@ -11,11 +15,16 @@ class WatermelonOrder(Melon):
 
     def get_price(self, qty):
         total = self.base_price() * qty
+        
         if qty >= 3:
             total = total * 0.75
-        print total
 
-class CantalopeOrder(Melon):
+        if self.imported:
+            total = total * 1.5
+            
+        return total
+
+class CantalopeOrder(AbstractOrder):
     species = "Cantaloupe"
     color = "tan"
     imported = False
@@ -27,9 +36,9 @@ class CantalopeOrder(Melon):
         if qty >= 5:
             total = total * 0.5
 
-        print total
+        return total
 
-class CasabaOrder(Melon):
+class CasabaOrder(AbstractOrder):
     species = "Casaba"
     color = "green"
     imported = True
@@ -39,10 +48,10 @@ class CasabaOrder(Melon):
     def get_price(self, qty):
         total = (self.base_price() + 1) * 1.5 * qty
 
-        print total
+        return total
 
 
-class SharlynOrder(Melon):
+class SharlynOrder(AbstractOrder):
     species = "Sharlyn"
     color = "tan"
     imported = True
@@ -51,10 +60,10 @@ class SharlynOrder(Melon):
 
     def get_price(self, qty):
         total = (self.base_price() * 1.5) * qty
-        print total
+        return total
 
 
-class Santa_ClausOrder(Melon):
+class Santa_ClausOrder(AbstractOrder):
     species = "Santa Claus"
     color = "green"
     imported = True
@@ -63,9 +72,9 @@ class Santa_ClausOrder(Melon):
 
     def get_price(self, qty):
         total = (self.base_price() * 1.5) * qty
-        print total
+        return total
 
-class ChristmasOrder(Melon):
+class ChristmasOrder(AbstractOrder):
     species = "Christmas"
     color = "green"
     imported = False
@@ -74,10 +83,10 @@ class ChristmasOrder(Melon):
 
     def get_price(self, qty):
         total = self.base_price() * qty
-        print total
+        return total
 
-class Horned_MelonOrder(Melon):
-    species = 'Horned Melon'
+class Horned_AbstractOrderOrder(AbstractOrder):
+    species = 'Horned AbstractOrder'
     color = "yellow"
     imported = True
     shape = 'natural'
@@ -85,10 +94,10 @@ class Horned_MelonOrder(Melon):
 
     def get_price(self, qty):
         total = (self.base_price() * 1.5) * qty
-        print total
+        return total
 
 
-class XiguaOrder(Melon):
+class XiguaOrder(AbstractOrder):
     species = 'Xigua'
     color = "black"
     imported = True
@@ -97,10 +106,10 @@ class XiguaOrder(Melon):
 
     def get_price(self, qty):
         total = (self.base_price() * 1.5 * 2) * qty
-        print total
+        return total
 
 
-class OgenOrder(Melon):
+class OgenOrder(AbstractOrder):
     species = 'Ogen'
     color = "tan"
     imported = False
@@ -109,4 +118,4 @@ class OgenOrder(Melon):
 
     def get_price(self, qty):
         total = (self.base_price() + 1) * qty
-        print total
+        return total
